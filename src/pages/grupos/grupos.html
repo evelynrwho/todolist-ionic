@@ -1,0 +1,23 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Grupos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+     <button ion-item *ngFor="let g of grupos" (click)="selecionaGrp(g.cod)">
+        <h2>{{g.nome}}</h2>
+        <h4>Projeto {{buscaProjeto(g.codProj)}}</h4>
+     </button>
+    </ion-list>
+    <div class="algn-btn">
+      <button ion-button round color="primary" (click)="novoGrp()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </div>
+  </ion-content>

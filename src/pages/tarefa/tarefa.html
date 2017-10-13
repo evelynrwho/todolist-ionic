@@ -1,0 +1,60 @@
+<!--
+  Generated template for the TarefaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tarefa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+        <ion-label color="dark">Descrição: </ion-label>
+        <ion-input type="text" placeholder="Descrição da tarefa" [(ngModel)]="desc" name="desc" required #cd="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label color="dark">Projeto: </ion-label>
+          <ion-select [(ngModel)]="codProj">
+          <ion-option *ngFor="let p of projetos" value="{{p.cod}}">{{p.nome}}</ion-option>
+        </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label color="dark">Data: </ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY"  [(ngModel)]="data" ></ion-datetime>
+          </ion-item>
+          <ion-item>
+              <ion-label color="dark">Prioridade: </ion-label>
+              <ion-select   [(ngModel)]="prioridade">
+                  <ion-option value="1">1 - Alta</ion-option>
+                  <ion-option value="2">2 - Média</ion-option>
+                  <ion-option value="3">3 - Baixa</ion-option>
+                </ion-select>
+            </ion-item>
+    </ion-list>
+
+    <ion-card>
+        <ion-card-content class="alerta" *ngIf="!cd.valid && cd.dirty">
+          A descrição da tarefa não pode ficar em branco.
+        </ion-card-content>
+      </ion-card>
+<div class="algn-btn">
+      <button ion-button round color="primary" (click)="addTarefa()" [disabled]="!cd.valid"  [class.invisivel]="!novo">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+      <button ion-button round color="primary" (click)="alteraTarefa()" [disabled]="!cd.valid"  [class.invisivel]="novo">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+        
+        <button ion-button round color="danger" (click)="deletaTarefa()" [class.invisivel]="novo">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </div>
+</ion-content>

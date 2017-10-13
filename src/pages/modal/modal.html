@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Equipe - Projeto {{ nomeProjeto }}</ion-title>
+    <ion-buttons right>
+    <button ion-button icon-only class="light" (click)="closeModal()"  title="Fechar modal"><ion-icon name="close"></ion-icon></button>  
+    </ion-buttons>  
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let p of pessoas">
+      <ion-label>{{p.nome}}</ion-label>
+      <ion-checkbox color="dark" (ionChange)="alteraSelecao(p)" checked="{{p.checked}}"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <div class="algn-btn">
+  <button ion-button round color="primary" icon-only (click)="salvar()">
+    <ion-icon name="checkmark"></ion-icon>
+  </button>
+</div>
+</ion-content>

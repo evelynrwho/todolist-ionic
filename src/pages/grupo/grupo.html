@@ -1,0 +1,49 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Grupo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Nome: </ion-label>
+      <ion-input type="text" placeholder="Nome do grupo" [(ngModel)]="nome" name="nome" required #grp="ngModel"></ion-input>    
+    </ion-item>
+    <ion-item>
+        <ion-label color="dark">Projeto: </ion-label>
+        <ion-select [(ngModel)]="codProj">
+        <ion-option *ngFor="let p of projetos" value="{{p.cod}}">{{p.nome}}</ion-option>
+      </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="dark">Equipe: {{ equipe.length }} membros        
+         <button ion-button icon-only round class="primary" (click)="abrirModal()" ><ion-icon name="create"></ion-icon></button>   
+          </ion-label>
+
+      </ion-item>
+
+  </ion-list>
+
+  <ion-card>
+      <ion-card-content class="alerta" *ngIf="!grp.valid && grp.dirty">
+        O nome do grupo não pode ficar em branco.
+      </ion-card-content>
+    </ion-card>
+<div class="algn-btn">
+    <button ion-button round color="dark" (click)="addGrp()" [disabled]="!grp.valid"  [class.invisivel]="!novo">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    <button ion-button round color="dark" (click)="alteraGrp()" [disabled]="!grp.valid"  [class.invisivel]="novo">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+      
+      <button ion-button round color="danger" (click)="deletaGrp()" [class.invisivel]="novo">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+</div>
+</ion-content>

@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Projeto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Nome: </ion-label>
+      <ion-input type="text" placeholder="Nome do projeto" [(ngModel)]="nome" name="nome" required #nomeProj="ngModel"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-content class="alerta" *ngIf="!nomeProj.valid && nomeProj.dirty">
+      O nome do projeto não pode ficar em branco.
+    </ion-card-content>
+  </ion-card>
+  <div class="algn-btn">
+  <button ion-button round color="primary" (click)="addProj()" [disabled]="!nomeProj.valid"  [class.invisivel]="!novo">
+      <ion-icon name="checkmark" ></ion-icon>
+    </button>
+
+  <button ion-button round color="primary" (click)="alteraProj()" [disabled]="!nomeProj.valid"  [class.invisivel]="novo">
+      <ion-icon name="checkmark"></ion-icon>
+    </button>
+    
+    <button ion-button round color="danger" (click)="deletaProj()" [class.invisivel]="novo">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </div>
+</ion-content>
+
