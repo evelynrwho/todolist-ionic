@@ -11,7 +11,7 @@ import { TarefasPage, Filtro } from '../pages/tarefas/tarefas';
 import { TarefaPage } from '../pages/tarefa/tarefa';
 import { GruposPage } from '../pages/grupos/grupos';
 import { GrupoPage } from '../pages/grupo/grupo';
-import { ModalPage, FiltroModal } from '../pages/modal/modal';
+import { ModalPage } from '../pages/modal/modal';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,8 +33,7 @@ import { PessoasServiceProvider } from '../providers/pessoas-service/pessoas-ser
     Filtro,
     GruposPage,
     GrupoPage,
-    ModalPage,
-    FiltroModal
+    ModalPage
   ],
   imports: [
     BrowserModule,
